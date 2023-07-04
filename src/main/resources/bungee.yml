@@ -1,0 +1,4 @@
+name: BanSystem
+version: '${project.version}'
+main: de.sparkofyt.bansystem.BanSystem
+author: sparkofyt
