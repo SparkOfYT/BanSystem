@@ -123,23 +123,23 @@ public final class BanSystem extends Plugin {
                 messagesConfig.set("BanSystem.commands.unban.PLAYER_UNBANNED", "%prefix% §8Der Spieler §3%player% §8wurde entbannt!");
 
                 messagesConfig.set("BanSystem.commands.baninfo.SYNTAX", "%prefix% §8Syntax: §3/baninfo [Ban ID]");
-                messagesConfig.set("BanSystem.commands.baninfo.PLAYER_MESSAGE.1", "%prefix% §8Ban Info für %ban_id%!");
+                messagesConfig.set("BanSystem.commands.baninfo.PLAYER_MESSAGE.1", "%prefix% §8Ban Info für §3%ban_id%§8!");
                 messagesConfig.set("BanSystem.commands.baninfo.PLAYER_MESSAGE.2", "%prefix% §8Gebannter Spieler: §3%banned_player%");
                 messagesConfig.set("BanSystem.commands.baninfo.PLAYER_MESSAGE.3", "%prefix% §8Gebannt von: §3%banned_by%");
-                messagesConfig.set("BanSystem.commands.baninfo.PLAYER_MESSAGE.3", "%prefix% §8Gebannt am: §3%date_of_ban%");
-                messagesConfig.set("BanSystem.commands.baninfo.PLAYER_MESSAGE.4", "%prefix% §8Gebannt bis: §3%date_end_of_ban%");
-                messagesConfig.set("BanSystem.commands.baninfo.PLAYER_MESSAGE.5", "%prefix% §8Grund: §3%reason%");
-                messagesConfig.set("BanSystem.commands.baninfo.PLAYER_MESSAGE.6", "%prefix% §8Permanent: §3%permanent2%");
+                messagesConfig.set("BanSystem.commands.baninfo.PLAYER_MESSAGE.4", "%prefix% §8Gebannt am: §3%date_of_ban%");
+                messagesConfig.set("BanSystem.commands.baninfo.PLAYER_MESSAGE.5", "%prefix% §8Gebannt bis: §3%date_end_of_ban%");
+                messagesConfig.set("BanSystem.commands.baninfo.PLAYER_MESSAGE.6", "%prefix% §8Grund: §3%reason%");
+                messagesConfig.set("BanSystem.commands.baninfo.PLAYER_MESSAGE.7", "%prefix% §8Permanent: §3%permanent%");
 
                 messagesConfig.set("BanSystem.commands.history.SYNTAX", "%prefix% §8Syntax: §3/history [Spieler]");
                 messagesConfig.set("BanSystem.commands.history.PLAYER_MESSAGE.1", "§8--------------------");
                 messagesConfig.set("BanSystem.commands.history.PLAYER_MESSAGE.2", "%prefix% §8Gebannter Spieler: §3%banned_player%");
                 messagesConfig.set("BanSystem.commands.history.PLAYER_MESSAGE.3", "%prefix% §8Gebannt von: §3%banned_by%");
-                messagesConfig.set("BanSystem.commands.history.PLAYER_MESSAGE.3", "%prefix% §8Gebannt am: §3%date_of_ban%");
-                messagesConfig.set("BanSystem.commands.history.PLAYER_MESSAGE.4", "%prefix% §8Gebannt bis: §3%date_end_of_ban%");
-                messagesConfig.set("BanSystem.commands.history.PLAYER_MESSAGE.5", "%prefix% §8Grund: §3%reason%");
-                messagesConfig.set("BanSystem.commands.history.PLAYER_MESSAGE.6", "%prefix% §8Permanent: §3%permanent2%");
-                messagesConfig.set("BanSystem.commands.history.PLAYER_MESSAGE.7", "§8--------------------");
+                messagesConfig.set("BanSystem.commands.history.PLAYER_MESSAGE.4", "%prefix% §8Gebannt am: §3%date_of_ban%");
+                messagesConfig.set("BanSystem.commands.history.PLAYER_MESSAGE.5", "%prefix% §8Gebannt bis: §3%date_end_of_ban%");
+                messagesConfig.set("BanSystem.commands.history.PLAYER_MESSAGE.6", "%prefix% §8Grund: §3%reason%");
+                messagesConfig.set("BanSystem.commands.history.PLAYER_MESSAGE.7", "%prefix% §8Permanent: §3%permanent%");
+                messagesConfig.set("BanSystem.commands.history.PLAYER_MESSAGE.8", "§8--------------------");
             }
 
             try {

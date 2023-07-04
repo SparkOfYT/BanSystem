@@ -77,7 +77,7 @@ public class BanInfoCommand extends Command {
         Configuration configuration = BanSystem.getInstance().getMessagesConfig().getSection("BanSystem.commands.baninfo.PLAYER_MESSAGE");
         for (int i = 0; i < configuration.getKeys().size(); i++) {
             player.sendMessage(new ComponentBuilder(
-                    configuration.getString(String.valueOf(i))
+                    configuration.getString(String.valueOf(i + 1))
                             .replace("%prefix%", BanSystem.getInstance().getMessagesConfig().getString("BanSystem.PREFIX"))
                             .replace("%ban_id%", banInfo.getBanID())
                             .replace("%banned_player%", UUIDFetcher.getName(banInfo.getBannedPlayerUUID()))
@@ -98,6 +98,10 @@ public class BanInfoCommand extends Command {
     private String getDateFormattedString(long millis) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss dd.MM.yyyy");
         ZonedDateTime dateTime = Instant.ofEpochMilli(millis).atZone(ZoneId.of("Europe/Berlin"));
+
+        if(dateTime.format(dtf).equalsIgnoreCase("01:00:00 01.01.1970"))
+            return "PERMANENT";
+
         return dateTime.format(dtf);
     }
 }

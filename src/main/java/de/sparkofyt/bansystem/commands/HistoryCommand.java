@@ -116,7 +116,7 @@ public class HistoryCommand extends Command {
         Configuration configuration = BanSystem.getInstance().getMessagesConfig().getSection("BanSystem.commands.history.PLAYER_MESSAGE");
         for (int i = 0; i < configuration.getKeys().size(); i++) {
             player.sendMessage(new ComponentBuilder(
-                    configuration.getString(String.valueOf(i))
+                    configuration.getString(String.valueOf(i + 1))
                             .replace("%prefix%", BanSystem.getInstance().getMessagesConfig().getString("BanSystem.PREFIX"))
                             .replace("%banned_player%", UUIDFetcher.getName(banInfo.getBannedPlayerUUID()))
                             .replace("%banned_by%", UUIDFetcher.getName(banInfo.getBannerPlayerUUID()))
@@ -136,6 +136,10 @@ public class HistoryCommand extends Command {
     private String getDateFormattedString(long millis) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss dd.MM.yyyy");
         ZonedDateTime dateTime = Instant.ofEpochMilli(millis).atZone(ZoneId.of("Europe/Berlin"));
+
+        if(dateTime.format(dtf).equalsIgnoreCase("01:00:00 01.01.1970"))
+            return "PERMANENT";
+
         return dateTime.format(dtf);
     }
 }

@@ -148,7 +148,7 @@ public class TempBanCommand extends Command {
     /* Utils */
     private String getReason(String[] args) {
         StringBuilder reason = new StringBuilder();
-        for (int i = 1; i < args.length; i++) {
+        for (int i = 2; i < args.length; i++) {
             if(i != args.length -1)
                 reason.append(args[i]).append(" ");
             else

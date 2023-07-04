@@ -11,6 +11,10 @@ import de.sparkofyt.bansystem.utils.UUIDFetcher;
 import org.bson.Document;
 import org.json.JSONObject;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.Period;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -280,26 +284,33 @@ public class BanAPI {
     }
 
     /* Utils Methods */
-    public static int convertTimeStringToMillis(String time) {
-        Pattern pattern = Pattern.compile("(\\d+)([ydhms])");
-        Matcher matcher = pattern.matcher(time);
+    public static long convertTimeStringToMillis(String durationString) {
+        Pattern pattern = Pattern.compile("(\\d+)([a-zA-Z])");
+        Matcher matcher = pattern.matcher(durationString);
 
-        int total = 0;
-        while(matcher.find()) {
+        Period period = Period.ZERO;
+        Duration duration = Duration.ZERO;
+
+        while (matcher.find()) {
             int value = Integer.parseInt(matcher.group(1));
             String unit = matcher.group(2);
 
-            switch (unit) {
-                case "y" -> total += value * 365 * 24 * 60 * 60;
-                case "d" -> total += value * 24 * 60 * 60;
-                case "h" -> total += value * 60 * 60;
-                case "m" -> total += value * 60;
-                case "s" -> total += value;
+            switch (unit.toLowerCase()) {
+                case "y" -> period = period.plusYears(value);
+                case "d" -> duration = duration.plusDays(value);
+                case "h" -> duration = duration.plusHours(value);
+                case "m" -> duration = duration.plusMinutes(value);
+                case "s" -> duration = duration.plusSeconds(value);
+                default -> {
+                }
             }
         }
 
-        if(total == 0) return 0;
-        return total * 1000;
+        LocalDateTime now = LocalDateTime.now();
+        LocalDateTime targetDateTime = now.plus(period).plus(duration);
+
+        Duration finalDuration = Duration.between(now, targetDateTime);
+        return finalDuration.toMillis();
     }
     public static String generateUniqueBanID() {
         MongoDatabase db = BanSystem.getInstance().getMongoConnector().getMongoClient().getDatabase(DATABASE_NAME);
